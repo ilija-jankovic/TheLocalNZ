@@ -3,21 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheLocalNZ.Views.ItemsPage"
              Title="{Binding Title}"
-             xmlns:local="clr-namespace:TheLocalNZ.ViewModels"
-             xmlns:model="clr-namespace:TheLocalNZ.Models"
-             xmlns:custom="clr-namespace:TheLocalNZ.Views"
              x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="itemList" RowHeight="75"  FlyoutItem.IsVisible="True">
+            <ListView x:Name="itemList" RowHeight="90"  FlyoutItem.IsVisible="True">
                 <ListView.ItemTemplate VerticalOptions="FillAndExpand">
                     <DataTemplate>
                         <ViewCell>
@@ -25,9 +18,14 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*" />
                                     <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="0.5*" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="{Binding Image1}" HorizontalOptions="Start"/>
-                                <Label Grid.Column="1" Text="{Binding Text}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                <Image Grid.Column="0" Source="{Binding image1}" HorizontalOptions="Center"/>
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Subtitle"/>
+                                    <Label Text="{Binding description}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" MaxLines="3" LineBreakMode="TailTruncation"/>
+                                </StackLayout>
+                                <Button Grid.Column="2" Text=">" TextColor="DarkSlateGray" Clicked="CellButton_Tapped" BackgroundColor="LightGreen" BorderColor="White" BorderWidth="1"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

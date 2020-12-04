@@ -69,6 +69,10 @@ namespace TheLocalNZ
                 listing.image3 = GetURLFromSrc(listing.image3);
                 _listings.Add(listing);
             }
+
+            //randomise listings for fairness
+            var rand = new Random();
+            _listings = _listings.OrderBy(x => rand.Next()).ToList();
         }
 
         string GetURLFromSrc(string src)
