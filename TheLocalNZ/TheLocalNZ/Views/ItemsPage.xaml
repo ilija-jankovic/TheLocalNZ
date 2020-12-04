@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheLocalNZ.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:TheLocalNZ.ViewModels"
+             xmlns:model="clr-namespace:TheLocalNZ.Models"
+             xmlns:custom="clr-namespace:TheLocalNZ.Views"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="itemList" RowHeight="75"  FlyoutItem.IsVisible="True">
+                <ListView.ItemTemplate VerticalOptions="FillAndExpand">
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding Image1}" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Text="{Binding Text}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
