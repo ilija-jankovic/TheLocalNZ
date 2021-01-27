@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace TheLocalNZ.iOS
 {
@@ -25,7 +26,7 @@ namespace TheLocalNZ.iOS
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

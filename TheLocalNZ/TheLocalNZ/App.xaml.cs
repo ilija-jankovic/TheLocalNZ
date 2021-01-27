@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using FFImageLoading;
 
 namespace TheLocalNZ
 {
@@ -67,6 +68,13 @@ namespace TheLocalNZ
                 listing.image1 = GetURLFromSrc(listing.image1);
                 listing.image2 = GetURLFromSrc(listing.image2);
                 listing.image3 = GetURLFromSrc(listing.image3);
+
+                //remove later
+                ImageService.Instance.LoadUrl(listing.image1).Preload();
+                ImageService.Instance.LoadUrl(listing.image2).Preload();
+                ImageService.Instance.LoadUrl(listing.image3).Preload();
+                //
+
                 _listings.Add(listing);
             }
 

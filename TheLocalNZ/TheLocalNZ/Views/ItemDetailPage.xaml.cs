@@ -8,12 +8,14 @@ namespace TheLocalNZ.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
+        public Listing listing { get; set; }
+
         public ItemDetailPage(Listing listing)
         {
             InitializeComponent();
             BindingContext = new ItemDetailViewModel();
 
-            imgSlider.Images = new ObservableCollection<FileImageSource>() { listing.image1, listing.image2, listing.image3 };
+            this.listing = listing;
             name.Text = listing.name;
             description.Text = listing.description;
         }

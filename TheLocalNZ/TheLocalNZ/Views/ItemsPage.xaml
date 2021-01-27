@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="TheLocalNZ.Views.ItemsPage"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
@@ -20,7 +21,7 @@
                                     <ColumnDefinition Width="3*" />
                                     <ColumnDefinition Width="0.5*" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="{Binding image1}" HorizontalOptions="Center"/>
+                                <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Memory" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center"/>
                                 <StackLayout Grid.Column="1">
                                     <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Subtitle"/>
                                     <Label Text="{Binding description}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" MaxLines="3" LineBreakMode="TailTruncation"/>

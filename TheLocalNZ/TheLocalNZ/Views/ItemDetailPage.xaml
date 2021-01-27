@@ -1,19 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="TheLocalNZ.Views.ItemDetailPage"
-             xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <ContentPage.Content>
         <StackLayout>
-            <controls:ImageCarousel x:Name="imgSlider" HeightRequest="300" WidthRequest="300" />
+            <StackLayout>
+                <CarouselView HeightRequest="300" WidthRequest="300" ItemsSource="{Binding listing}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="20"
+                       HeightRequest="300"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand">
+                                    <StackLayout>
+                                        <Image Source="{Binding image1}"/>
+                                        <Label Text="test"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
+            <StackLayout Spacing="20" Padding="15">
+                <Label x:Name="name" FontSize="Small"/>
+                <Label Text="Description:" FontSize="Medium" />
+                <Label x:Name="description" FontSize="Small"/>
+            </StackLayout>
         </StackLayout>
-        <StackLayout Spacing="20" Padding="15">
-            <Label x:Name="name" FontSize="Small"/>
-            <Label Text="Description:" FontSize="Medium" />
-            <Label x:Name="description" FontSize="Small"/>
-        </StackLayout>
-    </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>
