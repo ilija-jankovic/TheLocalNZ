@@ -8,44 +8,31 @@
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">Cyan</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView VerticalOptions="FillAndExpand">
-                    <Image x:Name="banner" Source="thelocal_transparent.png" VerticalOptions="Fill" HeightRequest="256"/>
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Browse Local" FontSize="Title"/>
-                <Label x:Name="aboutDescription" Text="With so many small businesses appearing all over NZ, we decided to create a platform where they can be seen without being overshadowed by popular brands." FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
+    <StackLayout BackgroundColor="{StaticResource Primary}" Orientation="Vertical">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Image Source="IMG_9827.HEIC"/>
+                    <Image Source="thelocal_transparent.png"/>
+                </Grid>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30,0,30,0">
+                <Label Text="Browse Local" FontSize="Title" TextColor="White"/>
+                <Label TextColor="White" Text="With so many small businesses appearing all over NZ, we decided to create a platform where they can be seen without being overshadowed by popular brands." FontSize="16" Padding="0,0,0,0"/>
+                <Label FontSize="Header">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Visit our website down below!"/>
+                                <Span Text="Visit our website down below!" TextColor="White"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 <Button Margin="0,10,0,0" Text="www.thelocalnz.com"
-                        BackgroundColor="{StaticResource Primary}"
+                        BackgroundColor="{StaticResource Button}"
                         TextColor="White"
                         Clicked="OnButtonClicked"/>
             </StackLayout>
         </ScrollView>
-    </Grid>
+    </StackLayout>
 
 </ContentPage>

@@ -133,6 +133,7 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\IMG_9827.HEIC" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -152,7 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TheLocalNZ\TheLocalNZ.csproj">
-      <Project>{0E7351A2-C436-4FEE-B159-1AAF634B73D2}</Project>
+      <Project>{467D0BFF-29B8-403D-900F-8802B6C123B5}</Project>
       <Name>TheLocalNZ</Name>
     </ProjectReference>
   </ItemGroup>

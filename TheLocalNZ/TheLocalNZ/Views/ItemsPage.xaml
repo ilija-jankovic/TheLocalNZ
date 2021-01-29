@@ -23,10 +23,10 @@
                                 </Grid.ColumnDefinitions>
                                 <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Memory" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center"/>
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Subtitle"/>
+                                    <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Header" MaxLines="1" LineBreakMode="TailTruncation"/>
                                     <Label Text="{Binding description}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" MaxLines="3" LineBreakMode="TailTruncation"/>
                                 </StackLayout>
-                                <Button Grid.Column="2" Text=">" TextColor="DarkSlateGray" Clicked="CellButton_Tapped" BackgroundColor="LightGreen" BorderColor="White" BorderWidth="1"/>
+                                <Button Grid.Column="2" Text=">" TextColor="DarkSlateGray" Clicked="CellButton_Tapped" BackgroundColor="{StaticResource Button}" BorderColor="White" BorderWidth="1"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
