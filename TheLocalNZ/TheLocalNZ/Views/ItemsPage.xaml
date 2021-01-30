@@ -11,6 +11,10 @@
     -->
     <ContentPage.Content>
         <StackLayout>
+            <Grid HeightRequest="300" VerticalOptions="Start">
+                    <Image Source="IMG_9827.HEIC" Aspect="Fill"/>
+                    <Image Source="thelocal_transparent.png" Aspect="AspectFit"/>
+            </Grid>
             <ListView x:Name="itemList" RowHeight="90"  FlyoutItem.IsVisible="True">
                 <ListView.ItemTemplate VerticalOptions="FillAndExpand">
                     <DataTemplate>
