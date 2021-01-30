@@ -11,7 +11,7 @@
     -->
     <ContentPage.Content>
         <StackLayout>
-            <Grid HeightRequest="300" VerticalOptions="Start">
+            <Grid MinimumHeightRequest="200" HeightRequest="200" VerticalOptions="Start">
                     <Image Source="IMG_9827.HEIC" Aspect="Fill"/>
                     <Image Source="thelocal_transparent.png" Aspect="AspectFit"/>
             </Grid>
