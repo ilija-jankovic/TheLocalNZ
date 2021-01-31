@@ -8,14 +8,12 @@ namespace TheLocalNZ.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        public Listing listing { get; set; }
-
         public ItemDetailPage(Listing listing)
         {
             InitializeComponent();
             BindingContext = new ItemDetailViewModel();
 
-            this.listing = listing;
+            carousel.ItemsSource = new string[] { listing.image1, listing.image2, listing.image3 };
             name.Text = listing.name;
             description.Text = listing.description;
         }

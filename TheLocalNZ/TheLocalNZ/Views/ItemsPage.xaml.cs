@@ -21,6 +21,8 @@ namespace TheLocalNZ.Views
         {
             InitializeComponent();
 
+
+            itemList.ItemsSource = Listings;
             BindingContext = _viewModel = new ItemsViewModel();
         }
 
@@ -29,7 +31,6 @@ namespace TheLocalNZ.Views
             base.OnAppearing();
             _viewModel.OnAppearing();
 
-            itemList.ItemsSource = Listings;
         }
 
         private async void CellButton_Tapped(object sender, EventArgs e)

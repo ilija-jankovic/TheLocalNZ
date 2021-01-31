@@ -8,29 +8,27 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <CarouselView HeightRequest="300" WidthRequest="300" ItemsSource="{Binding listing}">
+                <CarouselView x:Name="carousel" HeightRequest="400">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
+                            <Grid>
                                 <Frame HasShadow="True"
                        BorderColor="DarkGray"
                        CornerRadius="5"
                        Margin="20"
-                       HeightRequest="300"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand">
-                                    <StackLayout>
-                                        <Image Source="{Binding image1}"/>
-                                        <Label Text="test"/>
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                        <Image Source="{Binding .}" Aspect="AspectFit"/>
                                     </StackLayout>
                                 </Frame>
-                            </StackLayout>
+                            </Grid>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
             </StackLayout>
             <StackLayout Spacing="20" Padding="15">
-                <Label x:Name="name" FontSize="Small"/>
+                <Label x:Name="name" FontSize="Title"/>
                 <Label Text="Description:" FontSize="Medium" />
                 <Label x:Name="description" FontSize="Small"/>
             </StackLayout>
