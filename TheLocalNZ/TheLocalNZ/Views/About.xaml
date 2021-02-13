@@ -9,13 +9,13 @@
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout BackgroundColor="{StaticResource Primary}" Orientation="Vertical">
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                    <Image Source="IMG_9827.HEIC"/>
-                    <Image Source="thelocal_transparent.png"/>
+    <StackLayout BackgroundColor="{StaticResource Primary}">
+                <Grid>
+                    <Image Source="IMG_0535 2.heic"/>
+                    <Image Source="thelocal_background.png"/>
                 </Grid>
         <ScrollView>
-            <StackLayout Orientation="Vertical" Padding="30,0,30,0">
+            <StackLayout Orientation="Vertical" Padding="30,30,30,0">
                 <Label Text="Browse Local" FontSize="Title" TextColor="White"/>
                 <Label TextColor="White" Text="With so many small businesses appearing all over NZ, we decided to create a platform where they can be seen without being overshadowed by popular brands." FontSize="16" Padding="0,0,0,0"/>
                 <Label FontSize="Header">

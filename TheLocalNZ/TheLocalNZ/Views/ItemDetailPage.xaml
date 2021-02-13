@@ -18,9 +18,7 @@
                        Margin="20"
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="FillAndExpand">
-                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                                        <Image Source="{Binding .}" Aspect="AspectFit"/>
-                                    </StackLayout>
+                                     <forms:CachedImage Source="{Binding .}" DownsampleToViewSize="true" HorizontalOptions="Center"/>
                                 </Frame>
                             </Grid>
                         </DataTemplate>
