@@ -10,27 +10,26 @@
     </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="{StaticResource Primary}">
-                <Grid>
-                    <Image Source="IMG_0535 2.heic"/>
+                <Frame HasShadow="True"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       BackgroundColor="{StaticResource Primary}">
                     <Image Source="thelocal_background.png"/>
-                </Grid>
+                </Frame>
         <ScrollView>
             <StackLayout Orientation="Vertical" Padding="30,30,30,0">
                 <Label Text="Browse Local" FontSize="Title" TextColor="White"/>
                 <Label TextColor="White" Text="With so many small businesses appearing all over NZ, we decided to create a platform where they can be seen without being overshadowed by popular brands." FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="Header">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Visit our website down below!" TextColor="White"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Button Text="Browse Listings" Clicked="BrowseListingsClicked"
+                        BackgroundColor="{StaticResource Button}"
+                        TextColor="White"
+                        Margin="0,10,0,30"/>
+                <Label Text="List Your Business" FontSize="Title" TextColor="White"/>
+                <Label Text="Want to list your business? Visit our website down below!" TextColor="White"/>
                 <Button Margin="0,10,0,0" Text="www.thelocalnz.com"
                         BackgroundColor="{StaticResource Button}"
                         TextColor="White"
-                        Clicked="OnButtonClicked"/>
+                        Clicked="WebsiteLinkClicked"/>
             </StackLayout>
         </ScrollView>
     </StackLayout>

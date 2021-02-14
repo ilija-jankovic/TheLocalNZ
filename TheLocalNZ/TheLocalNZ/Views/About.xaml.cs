@@ -13,9 +13,14 @@ namespace TheLocalNZ.Views
             InitializeComponent();
         }
 
-        void OnButtonClicked(object sender, EventArgs args)
+        void WebsiteLinkClicked(object sender, EventArgs args)
         {
             Launcher.OpenAsync(new Uri("https://www.thelocalnz.com/"));
+        }
+
+        void BrowseListingsClicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new ItemsPage(), true);
         }
     }
 }

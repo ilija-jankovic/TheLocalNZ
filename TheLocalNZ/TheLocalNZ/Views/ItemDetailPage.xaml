@@ -6,9 +6,9 @@
              Title="{Binding Title}">
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="{StaticResource Primary}">
             <StackLayout>
-                <CarouselView x:Name="carousel" HeightRequest="400">
+                <CarouselView x:Name="carousel" HeightRequest="400" IsScrollAnimated="True">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -18,7 +18,7 @@
                        Margin="20"
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="FillAndExpand">
-                                     <forms:CachedImage Source="{Binding .}" DownsampleToViewSize="true" HorizontalOptions="Center"/>
+                                     <forms:CachedImage Source="{Binding .}" DownsampleToViewSize="true" HorizontalOptions="Center" Aspect="AspectFit"/>
                                 </Frame>
                             </Grid>
                         </DataTemplate>
@@ -26,9 +26,9 @@
                 </CarouselView>
             </StackLayout>
             <StackLayout Spacing="20" Padding="15">
-                <Label x:Name="name" FontSize="Title"/>
-                <Label Text="Description:" FontSize="Medium" />
-                <Label x:Name="description" FontSize="Small"/>
+                <Label x:Name="name" FontSize="Title" TextColor="White"/>
+                <Label x:Name="description" FontSize="Body" TextColor="White"/>
+                <Button Text="Go to Website" Clicked="OnButtonClicked" BackgroundColor="{StaticResource Button}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
