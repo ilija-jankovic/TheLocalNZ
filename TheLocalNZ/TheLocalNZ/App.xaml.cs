@@ -9,14 +9,18 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading;
+using Xamarin.Essentials;
 
 namespace TheLocalNZ
 {
     public partial class App : Application
     {
+        static App appRef;
 
         public App()
         {
+            appRef = this;
+
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
@@ -50,38 +54,41 @@ namespace TheLocalNZ
             
         }
 
-        async void GetListingsData()
+        public static async void GetListingsData()
         {
-            var client = new HttpClient();
-            var response = await client.GetAsync("https://www.thelocalnz.com/_functions/listings");
-            if (response.IsSuccessStatusCode)
+            if (Listings.Count == 0 && Connectivity.NetworkAccess == NetworkAccess.Internet || Connectivity.NetworkAccess == NetworkAccess.ConstrainedInternet)
             {
-                string content = response.Content.ReadAsStringAsync().Result;
-
-                JObject json = JObject.Parse(content);
-
-                IList<JToken> results = json["items"].Children().ToList();
-
-                //serialize JSON results into .NET objects
-                foreach (JToken result in results)
+                var client = new HttpClient();
+                var response = await client.GetAsync("https://www.thelocalnz.com/_functions/listings");
+                if (response.IsSuccessStatusCode)
                 {
-                    Listing listing = result.ToObject<Listing>();
-                    listing.image1 = GetURLFromSrc(listing.image1);
-                    listing.image2 = GetURLFromSrc(listing.image2);
-                    listing.image3 = GetURLFromSrc(listing.image3);
+                    string content = response.Content.ReadAsStringAsync().Result;
 
-                    //remove later
-                    ImageService.Instance.LoadUrl(listing.image1).Preload();
-                    ImageService.Instance.LoadUrl(listing.image2).Preload();
-                    ImageService.Instance.LoadUrl(listing.image3).Preload();
-                    //
+                    JObject json = JObject.Parse(content);
 
-                    _listings.Add(listing);
+                    IList<JToken> results = json["items"].Children().ToList();
+
+                    //serialize JSON results into .NET objects
+                    foreach (JToken result in results)
+                    {
+                        Listing listing = result.ToObject<Listing>();
+                        listing.image1 = appRef.GetURLFromSrc(listing.image1);
+                        listing.image2 = appRef.GetURLFromSrc(listing.image2);
+                        listing.image3 = appRef.GetURLFromSrc(listing.image3);
+
+                        //remove later
+                        ImageService.Instance.LoadUrl(listing.image1).Preload();
+                        ImageService.Instance.LoadUrl(listing.image2).Preload();
+                        ImageService.Instance.LoadUrl(listing.image3).Preload();
+                        //
+
+                        _listings.Add(listing);
+                    }
+
+                    //randomise listings for fairness
+                    var rand = new Random();
+                    _listings = _listings.OrderBy(x => rand.Next()).ToList();
                 }
-
-                //randomise listings for fairness
-                var rand = new Random();
-                _listings = _listings.OrderBy(x => rand.Next()).ToList();
             }
         }
 

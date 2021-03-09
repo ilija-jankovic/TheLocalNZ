@@ -21,7 +21,7 @@ namespace TheLocalNZ.Views
         {
             InitializeComponent();
 
-
+            GetListingsData();
             itemList.ItemsSource = Listings;
             BindingContext = _viewModel = new ItemsViewModel();
         }
