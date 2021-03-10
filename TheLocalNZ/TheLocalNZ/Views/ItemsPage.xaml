@@ -22,7 +22,7 @@
                                     <ColumnDefinition Width="3*" />
                                     <ColumnDefinition Width="0.5*" />
                                 </Grid.ColumnDefinitions>
-                                <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Memory" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center"/>
+                                <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Disk" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center"/>
                                 <StackLayout Grid.Column="1">
                                     <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Header" MaxLines="1" LineBreakMode="TailTruncation"/>
                                     <Label Text="{Binding description}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" MaxLines="3" LineBreakMode="TailTruncation"/>

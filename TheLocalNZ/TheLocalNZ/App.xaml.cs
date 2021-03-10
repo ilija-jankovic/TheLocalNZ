@@ -68,6 +68,8 @@ namespace TheLocalNZ
 
                     IList<JToken> results = json["items"].Children().ToList();
 
+                    _listings.Clear();
+
                     //serialize JSON results into .NET objects
                     foreach (JToken result in results)
                     {
