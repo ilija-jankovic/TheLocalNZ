@@ -18,7 +18,7 @@
                        Margin="20"
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="FillAndExpand">
-                                     <forms:CachedImage Source="{Binding .}" DownsampleToViewSize="true" HorizontalOptions="Center" Aspect="AspectFit"/>
+                                     <forms:CachedImage Source="{Binding .}" DownsampleToViewSize="true" HorizontalOptions="Center" Aspect="AspectFit" RetryCount="10" LoadingPlaceholder="loader.gif"/>
                                 </Frame>
                             </Grid>
                         </DataTemplate>

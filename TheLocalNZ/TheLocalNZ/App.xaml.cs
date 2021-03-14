@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading;
 using Xamarin.Essentials;
+using System.Collections.ObjectModel;
 
 namespace TheLocalNZ
 {
@@ -37,8 +38,8 @@ namespace TheLocalNZ
             public string image3 { get; set; }
         }
 
-        static List<Listing> _listings = new List<Listing>();
-        public static List<Listing> Listings { get { return _listings; } }
+        static ObservableCollection<Listing> _listings = new ObservableCollection<Listing>();
+        public static ObservableCollection<Listing> Listings { get { return _listings; } }
 
         protected override void OnStart()
         {
@@ -86,10 +87,6 @@ namespace TheLocalNZ
 
                         _listings.Add(listing);
                     }
-
-                    //randomise listings for fairness
-                    var rand = new Random();
-                    _listings = _listings.OrderBy(x => rand.Next()).ToList();
                 }
             }
         }

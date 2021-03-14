@@ -142,6 +142,7 @@
     <BundleResource Include="Resources\IMG_0535 2.heic" />
     <BundleResource Include="Resources\thelocal_background.png" />
     <BundleResource Include="Resources\thelocal_banner.png" />
+    <BundleResource Include="Resources\loader.gif" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

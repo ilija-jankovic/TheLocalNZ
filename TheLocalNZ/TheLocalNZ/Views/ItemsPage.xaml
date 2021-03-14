@@ -22,7 +22,7 @@
                                     <ColumnDefinition Width="3*" />
                                     <ColumnDefinition Width="0.5*" />
                                 </Grid.ColumnDefinitions>
-                                <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Disk" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center"/>
+                                <forms:CachedImage DownsampleToViewSize="true" Grid.Column="0" CacheType="Memory" CacheDuration="9999" Source="{Binding image1}" HorizontalOptions="Center" RetryCount="20" LoadingPlaceholder="loader.gif"/>
                                 <StackLayout Grid.Column="1">
                                     <Label Text="{Binding name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Header" MaxLines="1" LineBreakMode="TailTruncation"/>
                                     <Label Text="{Binding description}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" MaxLines="3" LineBreakMode="TailTruncation"/>
@@ -33,6 +33,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="&lt;" Clicked="PreviousPage" Grid.Column="0"/>
+                <Label x:Name="pageText" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1"/>
+                <Button Text="&gt;" Clicked="NextPage" Grid.Column="2"/>
+            </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
