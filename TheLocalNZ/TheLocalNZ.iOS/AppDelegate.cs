@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using UserNotifications;
 using Xamarin.Forms;
 
 namespace TheLocalNZ.iOS
@@ -27,7 +28,50 @@ namespace TheLocalNZ.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
+            // Version check
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                // Request notification permissions from the user
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert, (approved, err) => {
+                    // Handle approval
+                    CreateNotification();
+                });
+            }
+
             return base.FinishedLaunching(app, options);
+        }
+
+        const int NOTIFICATION_DELAY = 172800; //2 days
+
+        void CreateNotification()
+        {
+            //remove previous notification
+            var requests = new string[] { "reminder" };
+            UNUserNotificationCenter.Current.RemovePendingNotificationRequests(requests);
+
+            // Rebuild notification
+            var content = new UNMutableNotificationContent();
+            content.Title = "Browse Local!";
+            content.Subtitle = "See what NZ's local businesses have in store.";
+            content.Badge = 1;
+
+            // New trigger time
+            var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(NOTIFICATION_DELAY, false);
+
+            // ID of Notification to be updated
+            var requestID = "reminder";
+            var request = UNNotificationRequest.FromIdentifier(requestID, content, trigger);
+
+            // Add to system to modify existing Notification
+            UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
+            {
+                if (err != null)
+                {
+                    System.Console.WriteLine("Notification creation error: " + err);
+                    // Do something with error...
+                }
+            });
         }
     }
 }
