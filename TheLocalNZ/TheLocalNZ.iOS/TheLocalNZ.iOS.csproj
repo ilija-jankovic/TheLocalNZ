@@ -137,9 +137,7 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\IMG_9827.HEIC" />
     <BundleResource Include="Resources\thelocal_transparent_white.png" />
-    <BundleResource Include="Resources\IMG_0535 2.heic" />
     <BundleResource Include="Resources\thelocal_background.png" />
     <BundleResource Include="Resources\thelocal_banner.png" />
     <BundleResource Include="Resources\loader.gif" />
