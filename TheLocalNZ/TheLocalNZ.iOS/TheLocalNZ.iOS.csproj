@@ -58,8 +58,6 @@
     <IpaMetadata>Info.plist</IpaMetadata>
     <IpaIncludeArtwork>true</IpaIncludeArtwork>
     <CodesignProvision>iOS Team Provisioning Profile: com.TheLocalNZ.app</CodesignProvision>
-    <CodesignResourceRules></CodesignResourceRules>
-    <OnDemandResourcesPrefetchOrder></OnDemandResourcesPrefetchOrder>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -68,13 +66,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>false</BuildIpa>
     <IpaMetadata>Info.plist</IpaMetadata>
     <IpaPackageName>TheLocalNZ</IpaPackageName>
     <IpaIncludeArtwork>true</IpaIncludeArtwork>
     <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>com.TheLocalNZ.app</CodesignProvision>
+    <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
