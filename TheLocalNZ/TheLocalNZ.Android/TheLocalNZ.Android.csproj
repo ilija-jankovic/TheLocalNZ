@@ -50,9 +50,14 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
-    <MandroidI18n />
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <MandroidI18n>
+    </MandroidI18n>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidKeyStore>false</AndroidKeyStore>
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
