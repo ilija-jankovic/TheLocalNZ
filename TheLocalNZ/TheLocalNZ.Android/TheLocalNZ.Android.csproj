@@ -35,7 +35,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
-<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -97,28 +97,38 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-    <AndroidResource Include="Resources\drawable\icon_about.png" />
-    <AndroidResource Include="Resources\drawable\icon_feed.png" />
-    <AndroidResource Include="Resources\drawable\thelocal_transparent_white.png">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\drawable-xxhdpi\xamarin_logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_about.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_feed.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\thelocal_transparent_white.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\thelocal_background.png">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\drawable-xxhdpi\thelocal_background.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\thelocal_banner.png">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\drawable-xxhdpi\thelocal_banner.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\LaunchScreen.storyboard">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\drawable-xxhdpi\LaunchScreen.storyboard">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\loader.gif">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\drawable-xxhdpi\loader.gif">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
@@ -128,7 +138,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\thelocal_transparent.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\thelocal_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
