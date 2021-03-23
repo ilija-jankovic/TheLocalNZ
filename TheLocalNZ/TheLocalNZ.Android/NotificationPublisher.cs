@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -31,7 +32,7 @@ namespace TheLocalNZ.Droid
                 .SetContentTitle("Browse Local!")
                 .SetContentText("See what NZ's local businesses have in store.")
                 .SetSmallIcon(Resource.Drawable.SmallIcon)
-                .SetColor(Color.Green);
+                .SetLargeIcon(BitmapFactory.DecodeResource(context.Resources, Resource.Mipmap.icon));
 
             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
 

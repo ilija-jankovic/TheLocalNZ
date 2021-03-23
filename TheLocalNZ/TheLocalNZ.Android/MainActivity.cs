@@ -10,13 +10,14 @@ using FFImageLoading;
 using Xamarin.Forms;
 using Android.Content;
 using Android.Support.V4.App;
+using Plugin.LocalNotifications;
 
 namespace TheLocalNZ.Droid
 {
     [Activity(Label = "TheLocalNZ", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        long NOTIFICATION_DELAY = 10000;
+        long NOTIFICATION_DELAY = 10;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,8 +31,12 @@ namespace TheLocalNZ.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             LoadApplication(new App());
 
-            CreateNotificationChannel();
-            GenerateNotification();
+            //CreateNotificationChannel();
+            //GenerateNotification();
+
+            LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.SmallIcon;
+            CrossLocalNotifications.Current.Cancel(0);
+            CrossLocalNotifications.Current.Show("Browse Local!", "See what NZ's local businesses have in store.", 0, DateTime.Now.AddSeconds(NOTIFICATION_DELAY));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -41,7 +46,7 @@ namespace TheLocalNZ.Droid
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        void CreateNotificationChannel()
+        /*void CreateNotificationChannel()
         {
             if (Build.VERSION.SdkInt < BuildVersionCodes.O)
             {
@@ -69,6 +74,6 @@ namespace TheLocalNZ.Droid
             var pending = PendingIntent.GetBroadcast(this, 0, alarmIntent, PendingIntentFlags.OneShot);
             var alarmManager = GetSystemService(AlarmService).JavaCast<AlarmManager>();
             alarmManager.Set(AlarmType.ElapsedRealtime, SystemClock.ElapsedRealtime() + NOTIFICATION_DELAY, pending);
-        }
+        }*/
     }
 }
