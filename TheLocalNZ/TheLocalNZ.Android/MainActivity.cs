@@ -17,7 +17,7 @@ namespace TheLocalNZ.Droid
     [Activity(Label = "TheLocalNZ", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        long NOTIFICATION_DELAY = 10;
+        long NOTIFICATION_DELAY = 86400; //1 day
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
